@@ -1,10 +1,9 @@
-import { Hono } from 'hono'
+import app from './app'
+import { checkDb } from './db'
 
-const app = new Hono()
+const port = Number(process.env.PORT) || 3000
 
-app.get('/', (c) => {
-  return c.text('Hello Hono!')
-  
-})
+await checkDb()
+console.log(`🚀 Server running on http://localhost:${port}`)
 
-export default app
+export default { port, fetch: app.fetch }

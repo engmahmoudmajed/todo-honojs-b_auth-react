@@ -1,6 +1,12 @@
 import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/')({ component: Home })
+import type { AppType } from '../../../backend/src/app'
+import { hc } from 'hono/client'
+const client = hc<AppType>('/')
+
+
+
 
 function Home() {
   return (

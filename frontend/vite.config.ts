@@ -14,6 +14,13 @@ const config = defineConfig({
     tanstackRouter({ target: 'react', autoCodeSplitting: true }),
     viteReact(),
   ],
+  server:{
+    proxy:{
+      "/api":{
+        target:"http://lpcalhost:3000"
+      }
+    }
+  }
 })
 
 export default config
